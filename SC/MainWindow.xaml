@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SC"
         mc:Ignorable="d"
-        Title="SoundCloud Single Track Downloader" Height="230" Width="800"
+        Title="SoundCloud Single Track Downloader" Height="780" Width="800"
         Closed="Window_Closed"
         ResizeMode="NoResize">
     <Window.Resources>
@@ -47,6 +47,12 @@
     <Grid Background="#FF1B1B1B">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -94,5 +100,70 @@
                 Grid.Row="4"
                 Style="{StaticResource ModernButtonStyle}"
                 Content="Download"/>
+        <TextBox x:Name="SearchBox" 
+                 Height="20"
+                 Grid.Row="5"
+                 Margin="5"></TextBox>
+        <ListBox x:Name="SearchResultsBox"
+                 Grid.Row="6"
+                 Height="200"
+                 Margin="5"
+                 MouseDoubleClick="SearchResultsBox_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding ArtworkUrl}" Width="50" Height="50" Grid.Column="0"/>
+                        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Genre}"/>
+                            <TextBlock Text="{Binding Duration}"/>
+                            <TextBlock Text="{Binding DisplayDate}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="SearchButton"
+                Click="SearchButton_Click"
+                Height="35"
+                Margin="5"
+                Grid.Row="7"
+                Style="{StaticResource ModernButtonStyle}"
+                Content="Search"/>
+        <TextBox x:Name="PlaylistLinkTextBox" 
+                 Height="20"
+                 Grid.Row="8"
+                 Margin="5"></TextBox>
+        <Button x:Name="DownloadPlaylistButton"
+                Click="DownloadPlaylistButton_Click"
+                Height="35"
+                Margin="5"
+                Grid.Row="9"
+                Style="{StaticResource ModernButtonStyle}"
+                Content="Download Playlist"/>
+        <Border Grid.Row="10" Margin="5" Background="#333" BorderBrush="#444" BorderThickness="1" CornerRadius="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="MetaDataArtwork" Width="100" Height="100" Margin="10" Grid.Column="0"/>
+
+                <StackPanel Grid.Column="1" Margin="10">
+                    <TextBlock x:Name="MetaDataTitle" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock x:Name="MetaDataGenre" Foreground="White"/>
+                    <TextBlock x:Name="MetaDataDuration" Foreground="White"/>
+                    <TextBlock x:Name="MetaDataDisplayDate" Foreground="White"/>
+                    <TextBlock x:Name="MetaDataCaption" Foreground="White"/>
+                    <TextBlock x:Name="MetaDataDescription" TextWrapping="Wrap" Foreground="White"/>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
