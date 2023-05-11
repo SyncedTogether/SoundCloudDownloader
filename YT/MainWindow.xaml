@@ -1,0 +1,60 @@
+﻿<Window x:Class="YT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YT"
+        mc:Ignorable="d"
+        Title="YouTube Downloader" Height="600" Width="800" Background="#282828">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#383838" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="BorderBrush" Value="#8B0000" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#8B0000" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="BorderBrush" Value="#8B0000" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#383838" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="BorderBrush" Value="#8B0000" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FFFFFF" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="20">
+            <TextBox x:Name="UrlTextBox" />
+            <TextBox x:Name="LocationTextBox"  />
+            <Button x:Name="DownloadButton" Click="DownloadButton_Click" Content="Download Video" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="20">
+            <Image x:Name="ThumbnailImage" Height="200" Width="200"/>
+            <TextBlock x:Name="MetaDataTextBlock" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Window>
