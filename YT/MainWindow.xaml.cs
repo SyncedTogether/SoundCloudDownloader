@@ -89,6 +89,11 @@ namespace YT
             MessageBox.Show("Download completed!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        private async void DownloadPlaylistButton_Click(object sender, RoutedEventArgs e)
+        {
+            // doesn't work yet
+        }
+
 
     }
 }

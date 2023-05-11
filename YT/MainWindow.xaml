@@ -50,6 +50,8 @@
             <TextBox x:Name="UrlTextBox" />
             <TextBox x:Name="LocationTextBox"  />
             <Button x:Name="DownloadButton" Click="DownloadButton_Click" Content="Download Video" />
+            <TextBox x:Name="PlaylistUrlTextBox"/>
+            <Button x:Name="DownloadPlaylistButton" Click="DownloadPlaylistButton_Click" Content="Download Playlist" />
         </StackPanel>
 
         <StackPanel Grid.Column="1" Margin="20">
